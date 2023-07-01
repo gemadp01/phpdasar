@@ -1,0 +1,76 @@
+database : phpdasar
+tabel : mahasiswa
+
+struktur tabel
+<nama field> <tipe data> <atribut pendukung>
+id int primary key auto_increment
+nama varchar(100)
+npm varchar(10)
+email varchar(100)
+jurusan varchar(100)
+gambar varchar(100)
+
+*ketika lupa menulis ; kepencet enter, 
+karena enter belum mengeksekusi perintah
+masih menunggu string untuk perintahnya
+
+*ketika nilai pasti misal npm pasti ada 9, bisa gunakan char(9)
+*apabila beda" dan tidak pasti dalam ukuran, gunakan varchar
+*int maks (11)
+*where = identifier
+
+Perintah-perintah bahasa SQL:
+- show databases;
+- create database <nama>;
+- use <nama database>; (untuk memakai database)
+- create table <nama table> (
+		struktur table
+	);
+- show tables;
+- describe <nama table>; (untuk mengetahui struktur tabel)
+
+- insert into <nama table> values ('', 'masukkan data sesuai urutan struktur pada table'); 
+(id tidak perlu diisi karena diisi otomatis oleh mysql nya)
+(kalau tipe datanya teks string char/varchar gunakan '')
+
+- select * from <nama table>; 
+(pilih semua field dari from <nama table>;)
+- select npm from mahasiswa; (menampilkan 1 field saja)
+- select npm, nama from mahasiwa; (menampilkan 2 field saja)
+- select * from mahasiswa where npm = '19111038'; 
+(mencari mahasiswa dengan field spesifik, contoh diatas ialah
+pencarian berdasarkan where npm = '19111038')
+
+- update <nama table> set <field yang ingin diganti> where (field yang unik, id/npm);
+(update mahasiswa set jurusan = 'Informatika' where id = 2;)
+saya akan mengupdate mahasiswa, saya akan mengubaha jurusan menjadi informatika,
+untuk mahasiswa yang idnya 2
+
+- delete from mahasiswa;
+(menghapus semua data)
+- delete from mahasiswa where id = 3;
+(hapus record di tabel mahasiswa yang recordnya id = 3)
+
+- drop table mahasiswa;
+(menghapus semua table)
+
+- drop database phpdasar;
+(menghapus database)
+
+CRUD (Create, Read, Update, Delete)
+
+
+
+fungsi pada query mysql:
+- Query OK, 0 rows affected
+- Quesry OK, 1 row affected (berhasil ada data masuk sejumlah 1 baris)
+*ketika insert
+
+
+
+Aplikasi phpmyadmin (GUI) - salah satu contoh saja
+otomatis dikasih aplikasi phpmyadmin include penginstallan xampp
+apache on karena aplikasinya dibuat juga dengan php
+Aplikasi yang jadi perantara untuk connect ke database mysql
+
+banyak aplikasi pengganti phpmyadmin yang lebih bagus, lebih mudah dalam penggunaan
