@@ -6,9 +6,19 @@ if (isset($_POST["submit"])) {
 
     // cek apakah data berhasil di tambahkan atau tidak
     if (tambah($_POST) > 0) {
-        echo "data berhasil ditambahkan!";
+        echo "
+            <script>
+                alert('data berhasil ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+        ";
     } else {
-        echo "data gagal ditambahkan!";
+        echo "
+            <script>
+                alert('data gagal ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+        ";
     }
 }
 ?>
@@ -29,11 +39,11 @@ if (isset($_POST["submit"])) {
         <ul>
             <li>
                 <label for="npm">NPM : </label>
-                <input type="text" name="npm" id="npm" placeholder="NPM">
+                <input type="text" name="npm" id="npm" placeholder="NPM" required>
             </li>
             <li>
                 <label for="nama">Nama : </label>
-                <input type="text" name="nama" id="nama" placeholder="Nama">
+                <input type="text" name="nama" id="nama" placeholder="Nama" required>
             </li>
             <li>
                 <label for="email">Email : </label>
@@ -41,7 +51,7 @@ if (isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="jurusan">Jurusan : </label>
-                <input type="text" name="jurusan" id="jurusan" placeholder="Jurusan">
+                <input type="text" name="jurusan" id="jurusan" placeholder="Jurusan" required>
             </li>
             <li>
                 <label for="gambar">Gambar : </label>
@@ -53,6 +63,12 @@ if (isset($_POST["submit"])) {
         </ul>
     </form>
 
+    <script>
+        const formTambah = document.querySelector('form');
+        formTambah.addEventListener('click', function(e) {
+            console.log(e.target);
+        })
+    </script>
 </body>
 
 </html>

@@ -17,11 +17,11 @@ function query($query)
 function tambah($data)
 {
     global $conn;
-    $npm = $data["npm"];
-    $nama = $data["nama"];
-    $email = $data["email"];
-    $jurusan = $data["jurusan"];
-    $gambar = $data["gambar"];
+    $npm = htmlspecialchars($data["npm"]);
+    $nama = htmlspecialchars($data["nama"]);
+    $email = htmlspecialchars($data["email"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $gambar = htmlspecialchars($data["gambar"]);
 
     $query = "INSERT INTO mahasiswa
             VALUES
@@ -29,5 +29,12 @@ function tambah($data)
             ";
     mysqli_query($conn, $query);
 
+    return mysqli_affected_rows($conn);
+}
+
+function hapus($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id");
     return mysqli_affected_rows($conn);
 }
